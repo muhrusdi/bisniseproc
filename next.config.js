@@ -1,4 +1,3 @@
-/* eslint-disable */
 const withCss = require('@zeit/next-css')
 
 if (typeof require !== 'undefined') {
@@ -10,7 +9,8 @@ module.exports = withCss(
     exportPathMap: function(defaultPathMap) {
       return {
         '/': { page: '/' },
-        '/blogs': { page: '/blogs' }
+        '/blog': { page: '/blog' },
+        '/post': { page: '/post' }
       }
     }
   }

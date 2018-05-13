@@ -3,6 +3,19 @@
     "next/babel"
   ],
   "plugins": [
-    ["emotion", { "inline": true }]
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    ["emotion", { "inline": true }],
+    ["import",
+      {
+        "libraryName": "antd",
+        "style": false
+      }
+    ],
+    ["import", 
+      { "libraryName": "ant-design-pro", 
+        "style": false 
+      }, "ant-design-pro"
+    ]
   ]
 }
