@@ -88,17 +88,27 @@ class Header extends Component {
           padding-right: 16px;
         `}>
             <Col>
-              <Button onClick={() => this.props.actionToggle(!this.props.toggleSide)}>
-                <Icon type="bars" />
-              </Button>
+              <Row type="flex" gutter={10} align="middle">
+                <Col>
+                  <Button onClick={() => this.props.actionToggle(!this.props.toggleSide)}>
+                    <Icon type="bars" />
+                  </Button>
+                </Col>
+                <Col>
+                  <Breadcrumb>
+                    <Breadcrumb.Item key="home">
+                      <Link to="/">Dashboard</Link>
+                      <Icon type="right" />
+                      <Link to="/">Users</Link>
+                      <Icon type="right" />
+                      <Link to="/">User List</Link>
+                    </Breadcrumb.Item>
+                  </Breadcrumb>
+                </Col>
+              </Row>
             </Col>
             <Col>
-              {/* <Breadcrumb>
-                { breadcrumbItems }
-              </Breadcrumb> */}
-            </Col>
-            <Col>
-              <Row type="flex" align="middle" gutter={16}>
+              <Row type="flex" align="middle" gutter={10}>
                 <Col>
                   <Badge count={0}>
                     <Button>

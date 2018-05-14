@@ -52,32 +52,38 @@ class Sidebar extends Component {
                 </a>
               </Link>
             </Menu.Item>
-            <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Users</span></span>}>
-              <Menu.Item key="4">
-                <Link href="/users/user-list">
-                  <a>
-                    <Icon type="video-camera" />
-                    <span>User List</span>
-                  </a>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="5">
-                <Link href="/blog">
-                  <a>
-                    <Icon type="video-camera" />
-                    <span>User Group</span>
-                  </a>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="6">
-                <Link href="/blog">
-                  <a>
-                    <Icon type="video-camera" />
-                    <span>Login Log</span>
-                  </a>
-                </Link>
-              </Menu.Item>
-            </SubMenu>
+            <Menu.Item key="4">
+              <Link href="/blog">
+                <a>
+                  <Icon type="video-camera" />
+                  <span>Users</span>
+                </a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="7">
+              <Link href="/content-type">
+                <a>
+                  <Icon type="video-camera" />
+                  <span>Content Type</span>
+                </a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="8">
+              <Link href="/blog">
+                <a>
+                  <Icon type="video-camera" />
+                  <span>Media</span>
+                </a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="9">
+              <Link href="/blog">
+                <a>
+                  <Icon type="video-camera" />
+                  <span>Settings</span>
+                </a>
+              </Link>
+            </Menu.Item>
           </Menu>
         </Sider>
       </nav>
