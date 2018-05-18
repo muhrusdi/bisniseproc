@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
+import blogs from './blogs'
 
 const initialState = {
   togglePageLoad: false,
-  toggleSide: false
+  toggleSide: false,
 }
 
 const toggles = (state = initialState, action) => {
@@ -20,5 +21,6 @@ const toggles = (state = initialState, action) => {
 }
 
 export default combineReducers({
-  toggles
+  toggles,
+  blogs
 })

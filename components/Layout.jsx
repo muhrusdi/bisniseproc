@@ -6,69 +6,54 @@ import { css } from 'emotion'
 import { Row } from 'antd'
 import { connect } from 'react-redux'
 import { actionToggleLoad } from '../actions'
-import Sidebar from './Sidebar'
-import Header from './Header'
+import Globalnav from './Globalnav'
 
-const Layout = ({ children, title = 'Nextjs Starter', actionToggle, toggle, toggleSide}) => {
-  Router.onRouteChangeStart = (url) => {
-    actionToggle(true)
-    NProgress.start()
-  }
-  
-  Router.onRouteChangeComplete = () => {
-    actionToggle(false)
-    console.log('complete', toggle)
-    NProgress.done()
-  }
+const Layout = ({ children, title = 'Bisnis Eproc', actionToggle, toggle, toggleSide}) => {
+	Router.onRouteChangeStart = (url) => {
+		actionToggle(true)
+		NProgress.start()
+	}
+	
+	Router.onRouteChangeComplete = () => {
+		actionToggle(false)
+		console.log('complete', toggle)
+		NProgress.done()
+	}
 
-  Router.onRouteChangeError = () => {
-    actionToggle(false)
-    console.log('error')
-    NProgress.done()
-  }
+	Router.onRouteChangeError = () => {
+		actionToggle(false)
+		NProgress.done()
+	}
 
-  const left = !toggleSide ? '200px' : '80px'
+	const left = !toggleSide ? '200px' : '80px'
 
-  return (
-    <Row type="flex">
-      <Head>
-        <title>{title}</title>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/antd/3.5.1/antd.min.css' />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ant-design-pro/1.3.0/ant-design-pro.min.css"/>
-        <link rel="stylesheet" href="./static/stylesheets/nprogress.css"/>
-      </Head>
-      <Sidebar/>
-      <div className={css`
-        position: absolute;
-        left: ${left};
-        transition: left .3s ease;
-        right: 0;
-        top: 0;
-      `}>
-        <Header left={left}/>
-        <div className={css`
-          padding: 16px;
-        `}>
-          {
-            children
-          }
-        </div>
-      </div>
-    </Row>
-  )
+	return (
+		<>
+			<Head>
+				<title>{title}</title>
+				<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/antd/3.5.2/antd.min.css' />
+				<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet"/>
+				<link rel="stylesheet" href="./static/stylesheets/nprogress.css"/>
+			</Head>
+			<Globalnav/>
+			{
+				children
+			}
+		</>
+	)
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    toggle: state.toggles.togglePageLoad,
-    toggleSide: state.toggles.toggleSide
-  }
+	return {
+		toggle: state.toggles.togglePageLoad,
+		toggleSide: state.toggles.toggleSide
+	}
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    actionToggle: toggle => dispatch(actionToggleLoad(toggle))
-  }
+	return {
+		actionToggle: toggle => dispatch(actionToggleLoad(toggle))
+	}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)

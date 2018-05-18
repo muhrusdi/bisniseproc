@@ -18,8 +18,8 @@ app.prepare()
       return app.render(req, res, '/a', req.query)
     })
 
-    server.get('/posts/:id', (req, res) => {
-      return app.render(req, res, '/posts', { id: req.params.id })
+    server.get('/blog/:id', (req, res) => {
+      return app.render(req, res, '/blog', { id: req.params.id })
     })
 
     server.get('*', (req, res) => {
