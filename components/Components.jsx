@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { cx, css } from 'emotion'
 import { Row, Col, Avatar, Icon, Button } from 'antd'
 import ContentLoader from 'react-content-loader'
-import Truncate from 'react-truncate'
 import Dotdotdot from 'react-dotdotdot'
 import { styles } from '../utils/constants'
 
@@ -56,6 +55,7 @@ export const BlogItemText = ({blog}) => {
 		pathname: `/blog/${blog.id}`,
 		hash: blog.title
 	}
+
 	return (
 		<>
 			<Link href="">
@@ -66,7 +66,7 @@ export const BlogItemText = ({blog}) => {
 					`}>Top Component Culture</h4>
 				</a>
 			</Link>
-			<Link href={href} as={as}>
+			<Link prefetch href={href} as={as}>
 				<a>
 					<h2 className={css`
 						font-weight: bold;
@@ -237,7 +237,6 @@ export const SliderPrimaryItem = ({image}) => (
 					    font-family: 'Georgia';
 					    font-style: italic;
 					    color: #888888;
-					    margin-bottom: 20px;
 						`}>
 							quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto
 							</p>
@@ -256,7 +255,8 @@ export const Ellipsis = ({clamp, children}) => (
 	    text-overflow: ellipsis;
 	    -webkit-box-orient: vertical;
 	    display: -webkit-box;
-	    -webkit-line-clamp: ${clamp};
+			-webkit-line-clamp: ${clamp};
+			overflow: hidden;
 		`}>
 		{ children }
 	</div>

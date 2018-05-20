@@ -10,22 +10,16 @@ import Globalnav from './Globalnav'
 
 const Layout = ({ children, title = 'Bisnis Eproc', actionToggle, toggle, toggleSide}) => {
 	Router.onRouteChangeStart = (url) => {
-		actionToggle(true)
 		NProgress.start()
 	}
 	
 	Router.onRouteChangeComplete = () => {
-		actionToggle(false)
-		console.log('complete', toggle)
 		NProgress.done()
 	}
 
 	Router.onRouteChangeError = () => {
-		actionToggle(false)
 		NProgress.done()
 	}
-
-	const left = !toggleSide ? '200px' : '80px'
 
 	return (
 		<>
