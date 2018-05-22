@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { cx, css } from 'emotion'
 import { Row, Col, Avatar, Icon, Button } from 'antd'
 import ContentLoader from 'react-content-loader'
-import Dotdotdot from 'react-dotdotdot'
+import MultiClamp from 'react-multi-clamp'
 import { styles } from '../utils/constants'
 
 export const ImageCover = ({classes, image}) => {
@@ -21,7 +21,7 @@ export const ImageCover = ({classes, image}) => {
 				content: '""',
 				backgroundSize: 'cover'
 			}
-		}), classes)}></div>
+		}), classes, 'image-cover')}></div>
 	)
 }
 
@@ -72,19 +72,21 @@ export const BlogItemText = ({blog}) => {
 						font-weight: bold;
 						font-size: 22px;
 					`}>
-						<Ellipsis clamp={3}>
+						<MultiClamp ellipsis="..." clamp={3}>
 							{ blog.title }
-						</Ellipsis>
+						</MultiClamp>
 					</h2>
 				</a>
 			</Link>
-			<Ellipsis clamp={3}>
-				<p className={css`
+			<p className={css`
 				font-size: 14px;
 				`}>
+			<MultiClamp ellipsis="..." clamp={3}>
+				
 				    { blog.body }
-			    </p>
-			</Ellipsis>
+			    
+			</MultiClamp>
+			</p>
 			<ListInline/>
 		</>
 	)
@@ -210,9 +212,9 @@ export const SliderPrimaryItem = ({image}) => (
 					    font-weight: bold;
 					    line-height: 1.3;
 						`}>
-						<Ellipsis clamp={3}>
+						<MultiClamp ellipsis="..." clamp={3}>
 							Sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-						</Ellipsis>
+						</MultiClamp>
 					</h2>
 					<ul className={css`
 						display: flex;
@@ -230,17 +232,18 @@ export const SliderPrimaryItem = ({image}) => (
 						</li>
 						<li><a href="#">Muhammad Rusdi</a></li>
 					</ul>
-					
-						<Ellipsis clamp={3}>
-							<p className={css`
+					<p className={css`
 					    font-size: 14px !important;
 					    font-family: 'Georgia';
 					    font-style: italic;
 					    color: #888888;
 						`}>
+					<MultiClamp ellipsis="..." clamp={3}>
+							
 							quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto
-							</p>
-						</Ellipsis>
+							
+						</MultiClamp>
+						</p>
 					
 					<Button type="primary">Read More</Button>
 				</div>
@@ -277,11 +280,13 @@ export const SliderThumbItem = ({image}) => {
 				</Col>
 				<Col span={12}>
 					<div>
-						<Ellipsis clamp={3}>
-							<h2 className={styles.h2}>
+					<h2 className={styles.h2}>
+					<MultiClamp ellipsis="..." clamp={3}>
+							
 								quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto	
-							</h2>
-						</Ellipsis>
+							
+						</MultiClamp>
+						</h2>
 					</div>
 				</Col>
 			</Row>

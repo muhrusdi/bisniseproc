@@ -1,17 +1,26 @@
 import axios from 'axios'
 
-export const actionToggleLoad = (toggle) => {
+export const actionToggleLoad = toggle => {
   return {
     type: 'TOGGLE_LOAD',
     toggle: toggle
   }
 }
 
-export const actionToggleSide = (toggle) => {
+export const actionToggleSide = toggle => {
   return {
     type: 'TOGGLE_SIDE',
     toggle: toggle
   }
+}
+
+export const actionToggleSearch = toggle => {
+	toggle ? document.body.style.overflow = 'hidden' :
+			document.body.style.overflow = ''
+	return {
+		type: 'TOGGLE_SEARCH',
+		toggle: toggle
+	}
 }
 
 export const loadBlogs = () => {

@@ -11,6 +11,7 @@ import {
 	Button
 } from 'antd'
 import Container from './Container'
+import { styles } from '../utils/constants'
 import { ImageCover, SliderPrimaryItem, SliderThumbItem } from './Components'
 import image from '../static/images/image-slider.png'
 
@@ -48,10 +49,29 @@ class Slideshow extends Component {
 					<SliderPrimaryItem image={image}/>
 				</Carousel>
 				<Carousel className={cx('slider-thumb', css`
-					padding-top: 7px;
-					padding-bottom: 7px;
-					`)} asNavFor={this.state.slider1} ref={this.slider2} 
-					slidesToShow={4}
+					padding-bottom: 10px;
+					.slick-list {
+						height: 100px;
+					}
+					`, css`
+						.slick-slide {
+							margin-right: 7px;
+						}
+						.slick-active.slick-center {
+							background: ${styles.colorPrimary};
+							h2 {
+								color: #fff;
+							}
+						},
+						.slick-active.slick-center .image-cover:after {
+							top: 5px;
+							left: 5px;
+							bottom: 5px;
+							right: 5px;
+						}
+				`)
+				} asNavFor={this.state.slider1} ref={this.slider2} 
+					slidesToShow={3}
 					centerMode={true}
 					dots={false}
 			        swipeToSlide={true}

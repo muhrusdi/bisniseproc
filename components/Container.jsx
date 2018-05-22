@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { css } from 'emotion'
+import { cx, css } from 'emotion'
 
 class Container extends Component {
   constructor(props) {
@@ -36,15 +36,15 @@ class Container extends Component {
     this.classes()
   }
   render() {
-    let { gutter } = this.props
+    let { gutter, style } = this.props
     return (
-      <div className={css({
+      <div className={cx(css({
         maxWidth: this.state.width,
         position: 'relative',
         margin: '0 auto',
         paddingLeft: gutter ? gutter : 16,
         paddingRight: gutter ? gutter : 16
-      })}>
+      }), style)}>
         { 
           this.props.children
         }
