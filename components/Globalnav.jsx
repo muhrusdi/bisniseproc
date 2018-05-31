@@ -58,7 +58,7 @@ class Globalnav extends Component {
 						height: 60px;
 						`}>
 						<Col>
-							<Link href="/"><a><img src={logo} alt=""/></a></Link>
+							<Link href="/"><a><img className={css`height: 23px;`} src={logo} alt=""/></a></Link>
 						</Col>
 						<Col>
 							<Row type="flex" align="middle" gutter={20}>
